@@ -7,8 +7,8 @@
 
 import Foundation
 class Tasks {
-static func List() {
-    let nameTasks: String = """
+    static func List() {
+        let nameTasks: String = """
 
     1. Task1
     2. Task2
@@ -19,25 +19,25 @@ static func List() {
    choose a task
 
 """
- print (nameTasks)
-    let choose  = readLine()
-    guard let choose = choose else {
-        return
+        print (nameTasks)
+        let choose  = readLine()
+        guard let choose = choose else {
+            return
+        }
+        switch choose {
+        case "1" :
+            TaskOne.Task1()
+        case "2":
+            print ("2")
+        case "3" :
+            print ("3")
+        case "4":
+            print ("4")
+        case "5":
+            print ("5")
+        default:
+            print ("Error ivalid number")
+        }
     }
-    switch choose {
-    case "1" :
-        TaskOne.Task1()
-    case "2":
-        print ("2")
-    case "3" :
-        print ("3")
-    case "4":
-        print ("4")
-    case "5":
-        print ("5")
-    default:
-        print ("Error ivalid number")
-    }
-}
 }
 Tasks.List()
