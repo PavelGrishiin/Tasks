@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9ACD1F112819952F00475E23 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD1F102819952F00475E23 /* Protocols.swift */; };
+		9ACD1F1328199B4600475E23 /* ExecutionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD1F1228199B4600475E23 /* ExecutionTask.swift */; };
+		9ACD1F172819C16500475E23 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD1F162819C16500475E23 /* Common.swift */; };
+		9ACD1F1D2819E03500475E23 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD1F1C2819E03500475E23 /* Application.swift */; };
 		E9D8BA8128193B82001B2B3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8BA8028193B82001B2B3C /* main.swift */; };
-		E9D8BA8828195F13001B2B3C /* Task1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8BA8728195F13001B2B3C /* Task1.swift */; };
+		E9D8BA8828195F13001B2B3C /* SliceStringOnUniqueSubstringsTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8BA8728195F13001B2B3C /* SliceStringOnUniqueSubstringsTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,9 +28,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9ACD1F102819952F00475E23 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		9ACD1F1228199B4600475E23 /* ExecutionTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionTask.swift; sourceTree = "<group>"; };
+		9ACD1F162819C16500475E23 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		9ACD1F1C2819E03500475E23 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		E9D8BA7D28193B82001B2B3C /* Tasks */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tasks; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D8BA8028193B82001B2B3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E9D8BA8728195F13001B2B3C /* Task1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1.swift; sourceTree = "<group>"; };
+		E9D8BA8728195F13001B2B3C /* SliceStringOnUniqueSubstringsTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliceStringOnUniqueSubstringsTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +48,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9ACD1F192819C94D00475E23 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9ACD1F162819C16500475E23 /* Common.swift */,
+				9ACD1F102819952F00475E23 /* Protocols.swift */,
+				9ACD1F1C2819E03500475E23 /* Application.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9ACD1F1A2819C96000475E23 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				9ACD1F1228199B4600475E23 /* ExecutionTask.swift */,
+				9ACD1F1B2819C98000475E23 /* ToExecute */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		9ACD1F1B2819C98000475E23 /* ToExecute */ = {
+			isa = PBXGroup;
+			children = (
+				E9D8BA8728195F13001B2B3C /* SliceStringOnUniqueSubstringsTask.swift */,
+			);
+			path = ToExecute;
+			sourceTree = "<group>";
+		};
 		E9D8BA7428193B82001B2B3C = {
 			isa = PBXGroup;
 			children = (
@@ -60,7 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				E9D8BA8028193B82001B2B3C /* main.swift */,
-				E9D8BA8728195F13001B2B3C /* Task1.swift */,
+				9ACD1F192819C94D00475E23 /* Common */,
+				9ACD1F1A2819C96000475E23 /* Tasks */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -123,7 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9D8BA8828195F13001B2B3C /* Task1.swift in Sources */,
+				9ACD1F1D2819E03500475E23 /* Application.swift in Sources */,
+				E9D8BA8828195F13001B2B3C /* SliceStringOnUniqueSubstringsTask.swift in Sources */,
+				9ACD1F1328199B4600475E23 /* ExecutionTask.swift in Sources */,
+				9ACD1F112819952F00475E23 /* Protocols.swift in Sources */,
+				9ACD1F172819C16500475E23 /* Common.swift in Sources */,
 				E9D8BA8128193B82001B2B3C /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
