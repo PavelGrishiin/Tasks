@@ -11,6 +11,7 @@ static func Task1() {
     let string = "abccbabacbcabcbacbabcbabcabcbcbcbababacbcbabcabcabcabcbabacbcbacbacbabcabcabcbacbabcabcabcbacbacbabcbabacbabcbacbacbacbcbababcbacbcbcbabcabcabcabcbabababcbcbcbcbabacbabcabcbacbacbacbacbabcabcabcbacbacbacbabcabcbacbacbabcabcbacbacbabcbacbabcabcbacbabbacbabcabcbacbcbcbcababcabababcbcbcabacbcbbaacbaacbcbcbcabaacbcbbcbabcbccbabacbcbababcbccbabaacbcbabacbcbbacbbacacaaacbcbcbcaacccbabacbacbbabcbcbababcbbccabbcbababcbacbcbabcbcbcbababcbbcbcbcabababcbcbabbabcbcbabcbabcbcbcbcbababcabcbacbacbcbcabcbabcbabc"
     let countString = string.count
     var x = 0
+    print ("  enter the number")
     let input = readLine()
     guard let input = input else {return}
     guard let countElements = Int(input) else {return}
@@ -20,12 +21,9 @@ static func Task1() {
     } else {
     while x <= countString-1{
         array.insert(" ", at: x)
-//        print (array)
         x = x + countElements
     }
     let y = String(array)
-    
-//    print (countString/Int(countElements))
     let newArray = y.split(separator: " ")
     let set = Set(newArray)
     print (set)
