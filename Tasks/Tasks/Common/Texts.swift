@@ -1,11 +1,9 @@
 //
-//  Common.swift
+//  Texts.swift
 //  Tasks
 //
-//  Created by Nikita Grishin on 4/27/22.
+//  Created by Nikita Grishin on 4/28/22.
 //
-
-// MARK: - Texts
 
 enum Texts {
 	enum Tasks {
@@ -46,54 +44,4 @@ enum Texts {
 	
 	static var emptyLine: String { "" }
 	static var separator: String { String(Array(repeating: "+", count: 120)) }
-}
-
-// MARK: - NumberInput
-
-enum NumberInput: Equatable {
-	case valid(number: Int)
-	case invalid
-}
-
-// MARK: - AnswerInput
-
-enum AnswerInput {
-	case yes
-	case no
-	case invalid
-		
-	static func make(fromString string: String?) -> Self {
-		switch string {
-		case "y", "Y": return .yes
-		case "n", "N": return .no
-		default: return .invalid
-		}
-	}
-}
-
-// MARK: - TasksExecutionError
-
-enum TasksExecutionError: Error {
-	case emptyTasksList
-	case invalidTaskIndex
-	case unexpected(error: Error)
-	
-	var description: String {
-		switch self {
-		case .emptyTasksList: return Texts.Errors.Fatal.emptyTasksList
-		case .invalidTaskIndex: return Texts.Errors.Fatal.invalidTaskIndex
-		case .unexpected(let error): return Texts.Errors.Unexpected.makeDescription(for: error)
-		}
-	}
-}
-
-// MARK: - Error Extension
-
-extension Error {
-	func convertedToTasksExecutionError() -> TasksExecutionError {
-		switch self {
-		case let error as TasksExecutionError: return error
-		default: return .unexpected(error: self)
-		}
-	}
 }

@@ -39,18 +39,10 @@ private extension ExecutionTask {
 	}
 	
 	func printFormattedTasksList() {
-		print(Texts.Tasks.listHeader)
-		print(Texts.Tasks.choiceGuide)
-		print(Texts.emptyLine)
-		printTaskTitles()
-		print(Texts.emptyLine)
-	}
-	
-	func printTaskTitles() {
-		for (index, task) in tasks.enumerated() {
-			let taskNumber = index + 1
-			print("[\(taskNumber)] - \(task.title)")
-		}
+		let taskTitles = tasks.map(\.title)
+		
+		Console.Print.Tasks.listHeader()
+		Console.Print.Tasks.titlesList(taskTitles)
 	}
 	
 	func retrieveTaskNumberFromInput() -> Int {
@@ -59,19 +51,15 @@ private extension ExecutionTask {
 		switch input {
 		case .valid(let number):
 			return number
-		case .invalid:
-			print(Texts.Errors.invalidNumberInput)
-				
+		case .invalid(let message):
+			Console.Print.invalidInput(message: message)
 			return retrieveTaskNumberFromInput()
 		}
 	}
 	
 	func readNumberInput() -> NumberInput {
-		print(Texts.Tasks.numberChoice)
-		
-		let inputString = readLine()
-		print(Texts.emptyLine)
-		
+		let inputTitleTexts = [Texts.Tasks.numberChoice]
+		let inputString = Console.readInput(titleTexts: inputTitleTexts)
 		let input = validateNumberInput(fromString: inputString)
 		
 		return input
@@ -84,7 +72,7 @@ private extension ExecutionTask {
 		guard let inputString = inputString,
 			  let inputNumber = Int(inputString),
 			  taskNumbersRange ~= inputNumber else {
-			return .invalid
+			return .invalid(message: Texts.Errors.invalidNumberInput)
 		}
 
 		return .valid(number: inputNumber)
@@ -96,7 +84,7 @@ private extension ExecutionTask {
 	}
 	
 	func getTaskWithNumber(_ taskNumber: Int) throws -> TitleProvidableTask {
-		var taskIndexesRange: ClosedRange<Int> { 0...tasks.count - 1 }
+		var taskIndexesRange: Range<Int> { 0..<tasks.count }
 		let taskIndex = taskNumber - 1
 		
 		guard taskIndexesRange ~= taskIndex else {
@@ -109,7 +97,7 @@ private extension ExecutionTask {
 	func handleOrThrowError(_ error: TasksExecutionError) throws {
 		switch error {
 			case .invalidTaskIndex:
-				print(error.description)
+				Console.Print.error(error)
 			case .emptyTasksList, .unexpected:
 				throw error
 		}

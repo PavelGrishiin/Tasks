@@ -34,26 +34,19 @@ private extension Application {
 		
 		switch input {
 		case .yes:
-			print(Texts.separator)
-			print(Texts.emptyLine)
-				
+			Console.Print.separator()
 			return true
 		case .no:
 			return false
-		case .invalid:
-			print(Texts.Errors.invalidAnswerInput)
-				
+		case .invalid(let message):
+			Console.Print.invalidInput(message: message)
 			return askToContinueTasksExecution()
 		}
 	}
 	
 	static func readAnswerInput() -> AnswerInput {
-		print(Texts.Application.askToContinue)
-		print(Texts.Application.choiceGuide)
-		
-		let inputString = readLine()
-		print(Texts.emptyLine)
-		
+		let inputTitleTexts = [Texts.Application.askToContinue, Texts.Application.choiceGuide]
+		let inputString = Console.readInput(titleTexts: inputTitleTexts)
 		let input = AnswerInput.make(fromString: inputString)
 		
 		return input
@@ -61,7 +54,6 @@ private extension Application {
 	
 	static func handleError(_ error: Error) {
 		let tasksExecutionError = error.convertedToTasksExecutionError()
-		
-		print(tasksExecutionError.description)
+		Console.Print.error(tasksExecutionError)
 	}
 }
