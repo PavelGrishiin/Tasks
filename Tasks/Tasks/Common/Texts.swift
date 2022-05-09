@@ -12,7 +12,9 @@ enum Texts {
 		static var numberChoice: String { "Choose the task number:" }
 		static var requirementHeader: String { "TASK REQUIREMENT:" }
 		static var executionResult: String { "TASK EXECUTION RESULT:" }
-	}
+        static var amountOfElements: String { "Enter the number of elements in the substring" }
+
+    }
 	
 	enum Application {
 		static var askToContinue: String { "DO YOU WAN'T TO CONTINUE?" }
