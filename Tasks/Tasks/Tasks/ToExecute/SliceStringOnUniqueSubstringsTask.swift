@@ -71,7 +71,8 @@ class SliceStringOnUniqueSubstringsTask: TitleProvidableTask {
               convertTaskStringToArray.insert(" ", at: inputNumberOfElementsInParts)
               inputNumberOfElementsInParts = inputNumberOfElementsInParts + x + 1
         }
-        let result = Set(convertTaskStringToArray.split(separator: " "))
+        let convertArrayToString = String(convertTaskStringToArray)
+        let result = Set(convertArrayToString.split(separator: " "))
         print("result Task")
         print(result)
     }
